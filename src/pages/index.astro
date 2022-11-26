@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Inicio from '../components/Inicio.astro';
+import Documentacion from '../components/Documentacion.astro';
+import Beneficios from '../components/Beneficios.astro';
+import ToAction from '../components/ToAction.astro';
+import Ubicacion from '../components/Ubicacion.astro';
+import Contacto from '../components/Contacto.astro';
+
+import Footer from '../components/Footer.astro';
+import Tour from '../components/Tour';
+---
+
+<Layout title="Ayllu Kaypi - Villa los Parques">
+
+	<Header />
+	
+	<main>
+		<Inicio />
+		<Documentacion />
+		<Beneficios />
+		<ToAction />
+		<Ubicacion />
+		<Tour client:visible/>
+		<Contacto />
+		<Footer />
+	</main>
+</Layout>
+

@@ -1,0 +1,39 @@
+---
+import docu from '../images/papeles.webp';
+
+---
+<section class="py-8 lg:py-24 lg:px-14 px-0 bg-[#000f1c]" id="documentacion">
+   <div class="container">
+      <div class="md:flex justify-center px-5">
+         <div class="block shrink grow basis-0 p-2 text-center">
+            <h2 class="font-medium text-xl text-cyan-ak lg:text-2xl md:mb-8 mb-3 after:w-14 after:h-1 after:mx-auto after:mt-3 after:bg-cyan-ak after:block after:rounded">
+               Documentación
+            </h2>
+            <p class="text-gray-300 text-base">Garantizamos la seguridad en tu compra con documentos legalizados.</p>
+         </div>
+      </div>
+   </div>
+   <div class="md_flex items-center justify-between flex-wrap">
+      <div class="block shrink grow basis-0 p-2 px-0 ">
+         <a
+            href="./img/papeles.webp"
+            class="block spotlight"
+         >
+            <figure class="block relative">
+               <picture>
+                  {/* <source srcset="./img/papeles.avif" type="image/avif">
+         <source srcset="./img/papeles.webp" type="image/webp"> */}
+                  <img
+                     loading="lazy"
+                     class="w-full "
+                     width={300}
+                     height={200}
+                     src={docu}
+                     alt="Documentacion Notarial Villa los Parques"
+                  />
+               </picture>
+            </figure>
+         </a>
+      </div>
+   </div>
+</section>

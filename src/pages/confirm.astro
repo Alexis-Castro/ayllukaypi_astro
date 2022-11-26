@@ -1,0 +1,95 @@
+---
+import landingApi from "../api/landingApi";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { format } from "date-fns";
+import es from 'date-fns/locale/es/index.js';
+
+const { data: { data } } = await landingApi.get(`/lastactividad`);
+const response = await landingApi.get(`/contacto/${data.contacto_idcontacto}`);
+---
+
+<Layout title="Ayllu Kaypi - Villa los Parques">
+   <Header />
+
+   <!-- {data} -->
+
+   <section class="flex items-stretch flex-col justify-center py-5">
+      <div class="md:p-12">
+         <div class="container">
+            <div class="md:flex justify-center">
+               <div class="block basis-0 flex-shrink flex-grow p-2 text-center">
+                  <div class="block mb-7">
+                     <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="65"
+                        height="65"
+                        fill="currentColor"
+                        class="bi bi-check-circle text-azul mx-auto"
+                        viewBox="0 0 16 16"
+                     >
+                        <path
+                           d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                        ></path>
+                        <path
+                           d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"
+                        ></path>
+                     </svg>
+                  </div>
+                  <div>
+                     <h1 class="text-xl text-azul lg:text-2xl font-bold">
+                        { response.data.data.nombres.split(" ")[0] }, tu llamada ha sido programada.
+                     </h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="py-8 px-6 lg:py-24 lg:px-14 is-medium bg-slate-100">
+      <div class="container">
+         <div class="justify-center">
+            <div class="block basis-0 flex-shrink flex-grow p-2 mb-3">
+               <p class="text-base text-center">
+                  Te llamaremos al <span class="font-bold"></span> para brindarte
+                  la asesoría personalizada.
+               </p>
+            </div>
+            <div
+               class="block basis-0 flex-shrink flex-grow p-2 text-center mb-3"
+            >
+               <div class="inline-block border border-azul px-8 py-3 text-base">
+                  <p class="font-bold mb-3">Horario confirmado:</p>
+                  <p class="font-bold capitalize">
+                     {
+                        format(
+                           new Date(data.fechahoravto),
+                           "eeee, dd 'de' MMMM",
+                           { locale: es }
+                        )
+                     }
+                  </p>
+                  <p class="">
+                     {
+                        format(new Date(data.fechahoravto), "h:mm a", {
+                           locale: es,
+                        })
+                     } (Perú)
+                  </p>
+               </div>
+            </div>
+
+            <div class="block basis-0 flex-shrink flex-grow p-2 text-center">
+               <p class="text-base">
+                  Esperamos poder hablar contigo y ayudarte para que tomes la
+                  mejor decisión.
+               </p>
+            </div>
+         </div>
+      </div>
+   </section>
+   <Footer />
+</Layout>

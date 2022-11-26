@@ -1,0 +1,53 @@
+---
+import mapaJpg from '../images/mapa-villa-los-parques.jpg';
+import mapaWebp from '../images/mapa-villa-los-parques.webp';
+import mapaAvif from '../images/mapa-villa-los-parques.avif';
+
+// console.log('scrip');
+
+---
+
+<section class="py-8 lg:py-24 lg:px-14 bg-[#000f1c] px-0" id="ubicacion">
+   <div class="lg:container">
+      <div class="md:flex justify-center">
+         <div class="block shrink grow basis-0 p-2 text-center">
+            <h2
+               class="font-medium text-xl text-cyan-ak lg:text-2xl mb-5 after:w-14 after:h-1 after:mx-auto after:mt-3 after:bg-cyan-ak after:block after:rounded"
+            >
+               Ubicación
+            </h2>
+            <p class="text-gray-200 text-base">
+               Nuestro proyecto se ubica a 15 minutos de la ciudad de
+               Lambayeque.
+            </p>
+         </div>
+      </div>
+      <div
+         class=" lg:gap-x-3 md:w-5/6 lg:w-full mx-auto justify-between items-center flex-wrap lg:mb-5"
+      >
+         <div class="block shrink grow basis-0 p-2 px-0 text-center lg:flex-none">
+            <figure class="block relative">
+               <picture>
+                  <source
+                     srcset={mapaAvif}
+                     type="image/avif"
+                  />
+                  <source
+                     srcset={mapaWebp}
+                     type="image/webp"
+                  />
+                  <img
+                     loading="lazy"
+                     class="w-full"
+                     width={300}
+                     height={200}
+                     src={mapaJpg}
+                     alt="Ubicación Villa los Parques"
+                  />
+               </picture>
+            </figure>
+         </div>
+      </div>
+      
+   </div>
+</section>
